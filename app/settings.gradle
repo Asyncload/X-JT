@@ -1,0 +1,18 @@
+// 项目结构配置，告诉Gradle有哪些模块
+pluginManagement {
+    repositories {
+        google()          // 谷歌依赖库
+        mavenCentral()    // 中央仓库
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "ForceScreenshot"  // 项目名称
+include ':app'                       // 包含app模块
