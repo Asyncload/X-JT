@@ -1,0 +1,12 @@
+// 整个项目的构建配置
+plugins {
+    // 安卓构建插件版本
+    id 'com.android.application' version '7.2.2' apply false
+}
+
+// 定义通用版本，方便统一修改
+ext {
+    compileSdkVersion = 33    // 用哪个Android SDK编译
+    minSdkVersion = 29        // 最低支持Android 10（API 29）
+    targetSdkVersion = 33     // 目标版本
+}
