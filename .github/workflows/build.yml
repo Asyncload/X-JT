@@ -4,11 +4,9 @@ name: Build APK
 # 什么时候触发编译：
 # 1. 代码提交到main分支时
 # 2. 手动点击Run workflow时
+# 去掉自动触发，只保留手动触发
 on:
-  push:
-  
-  workflow_dispatch: 
-   # 允许手动运行
+  workflow_dispatch: {}
 
 jobs:
   build:
