@@ -1,0 +1,36 @@
+// 模块app的构建配置
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.forcescreenshot'  // 命名空间
+    compileSdk 33                            // 编译版本
+
+    defaultConfig {
+        applicationId "com.example.forcescreenshot"  // APP包名
+        minSdk 29                         // 最低安卓10
+        targetSdk 33
+        versionCode 1                     // 版本号
+        versionName "1.0"                 // 版本名
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false            // 不混淆代码
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Java版本兼容
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+// 依赖：只在编译时用Xposed API，不打包进APK
+dependencies {
+    compileOnly 'de.robv.android.xposed:api:82'
+    compileOnly 'de.robv.android.xposed:api:82:sources'
+}
