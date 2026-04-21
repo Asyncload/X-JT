@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 整个APP的配置清单，系统靠这个识别APP -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.forcescreenshot">  <!-- 包名，唯一标识 -->
+
+    <!-- 应用配置 -->
+    <application
+        android:label="强制截图"           <!-- 桌面上显示的名字 -->
+        android:supportsRtl="true">        <!-- 兼容从右往左的语言（不用管） -->
+
+        <!-- 下面这3个是Xposed模块必须的配置 -->
+        
+        <!-- 声明这是一个Xposed模块 -->
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+
+        <!-- 模块描述，在LSPosed里显示 -->
+        <meta-data
+            android:name="xposeddescription"
+            android:value="解除禁止截图限制，无视FLAG_SECURE" />
+
+        <!-- 最低支持的Xposed API版本 -->
+        <meta-data
+            android:name="xposedminversion"
+            android:value="82" />
+
+    </application>
+</manifest>
