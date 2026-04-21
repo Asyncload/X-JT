@@ -1,4 +1,4 @@
-name: Build APK
+name: Build APK (Final)
 
 on:
   workflow_dispatch: {}
@@ -15,10 +15,19 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Install Gradle
+      - name: Install Gradle & Dependencies
         run: |
           sudo apt update
           sudo apt install -y gradle
+          mkdir -p ~/.gradle
+          cat > ~/.gradle/init.gradle << 'EOF'
+          allprojects {
+              repositories {
+                  mavenCentral()
+                  google()
+              }
+          }
+          EOF
 
       - name: Build APK
         run: gradle assembleRelease
