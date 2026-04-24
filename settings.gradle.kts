@@ -15,6 +15,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SecureFlagModule"
+rootProject.name = "screen_X"
 
 include (":app")
