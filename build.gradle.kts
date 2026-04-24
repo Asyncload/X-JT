@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.2'
+        classpath("com.android.tools.build:gradle:8.1.3")
     }
 }
 
@@ -13,10 +13,4 @@ allprojects {
         google()
         mavenCentral()
     }
-}
-
-ext {
-    compileSdkVersion = 33
-    minSdkVersion = 29
-    targetSdkVersion = 33
 }
