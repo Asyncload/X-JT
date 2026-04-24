@@ -1,20 +1,16 @@
-pluginManagement {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
+// 在 settings.gradle.kts 的 dependencyResolutionManagement -> repositories 块中
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://jitpack.io' }
-        maven { url 'https://api.xposed.info/' }
+        // 修正 jitpack 仓库配置
+        maven {
+            url = uri("https://jitpack.io")
+        }
+        // 修正 xposed 仓库配置
+        maven {
+            url = uri("https://api.xposed.info/")
+        }
     }
 }
-
-rootProject.name = "screen_X"
-
-include (":app")
