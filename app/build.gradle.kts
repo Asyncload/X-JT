@@ -5,6 +5,7 @@ plugins {
 }
 
 android {
+    namespace = "com.lbxq.screen"
     compileSdk = 34
     defaultConfig {
         applicationId = "com.lbxq.screen"
