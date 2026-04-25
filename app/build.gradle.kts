@@ -1,7 +1,7 @@
-//Android项目中 app 模块的构建配置文件
+//Android项目中 app 模块的构建配置文件
 plugins {
-    id("com.android.application") version "8.1.0" // 8.1版本插件
-    //id("org.jetbrains.kotlin.android") version "1.9.22" // 适配8.1插件的Kotlin版本
+    id("com.android.application") version "8.1.0"
+    id("org.jetbrains.kotlin.android") version "1.9.22"
 }
 
 android {
@@ -14,12 +14,20 @@ android {
         versionCode = 1
         versionName = "1.0.0"
     }
-    buildTypes { release { isMinifyEnabled = false } }
-    compileOptions { sourceCompatibility = JavaVersion.VERSION_17 }
-    kotlinOptions { jvmTarget = "17" }
+    buildTypes { 
+        release { 
+            isMinifyEnabled = false 
+        }
+    }
+    compileOptions { 
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17 
+    } // 补充这行大括号闭合compileOptions
+    kotlinOptions { 
+        jvmTarget = "17" 
+    }
 }
 
 dependencies {
-    implementation("org.lsposed.api:api:1.9.1")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.22") // 匹配Kotlin版本
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.22")
 }
