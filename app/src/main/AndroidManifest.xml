@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lbxq.screen">
+<manifest package="com.lbxq.screen"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <application
-        android:allowBackup="true"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.MyModule">
-        <meta-data
-            android:name="lsposed.module"
-            android:value="true" />
+    <application>
+        <meta-data android:name="xposedmodule" android:value="true" />
+        <meta-data android:name="lsposedminversion" android:value="1.8.6" />
     </application>
-
 </manifest>
