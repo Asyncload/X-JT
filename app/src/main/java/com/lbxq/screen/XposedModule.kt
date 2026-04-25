@@ -9,12 +9,13 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 class XposedModule : IXposedHookLoadPackage {
     // 要处理的APP包名列表
     private val targetApps = listOf(
-        "com.tencent.mm",      // 微信
-        "com.ss.android.ugc.aweme", // 抖音
-        "com.eg.android.AlipayGphone" // 支付宝
-        "com.sankuai.meituan.dispatch.crowdsource" //美团众包
-        "me.ele.crowdsource"            // 蜂鸟众包
-    )
+    "com.tencent.mm",                  // 微信
+    "com.ss.android.ugc.aweme",        // 抖音
+    "com.eg.android.AlipayGphone",     // 支付宝
+    "me.ele.crowdsource",              // 蜂鸟众包
+    "com.sankuai.meituan.dispatch.crowdsource" // 美团众包
+)
+
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         // 只处理列表中的APP
