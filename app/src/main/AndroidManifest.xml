@@ -3,6 +3,7 @@
     package="com.lbxq.screen">
 
     <application
+        android:label="X-JT" 
         android:allowBackup="true"
         android:supportsRtl="true">
         <meta-data
