@@ -34,7 +34,7 @@ jobs:
       # ==============================================
       - name: Update the version number
         run: |
-          echo "📝 build.gradle中versionName行原始内容："
+          echo "📝 build.gradle.kts中versionName行原始内容："
           grep versionName app/build.gradle.kts
 
           OLD_VER=$(grep versionName app/build.gradle.kts | awk '{print $NF}' | tr -d '"' | tr -d "'")
@@ -60,7 +60,7 @@ jobs:
           
           UPDATED_VER=$(grep versionName app/build.gradle.kts | awk '{print $NF}' | tr -d '"' | tr -d "'")
           if [ "$UPDATED_VER" != "$NEW_VER" ]; then
-            echo "❌ 版本号写入失败！当前文件中的值: $UPDATED_VER"
+            echo "❗ 版本号写入失败！当前文件中的值: $UPDATED_VER"
             exit 1
           fi
           echo "✅ 版本号已成功写入build.gradle.kts"
@@ -72,7 +72,7 @@ jobs:
           echo "DATE=$DATE" >> $GITHUB_ENV
           echo "BUILD_TIME=$TIME" >> $GITHUB_ENV
 
-      # 正常编译（现在编译用的是【新版本号】）
+      # 正常编译（现在编译用的是【新版本号】）& 并清除缓存
       - name: Build Release APK
         run: ./gradlew clean assembleRelease --no-build-cache
 
@@ -113,7 +113,7 @@ jobs:
             git push
             echo "✅ 版本号变更已提交并推送至仓库"
           else
-            echo "ℹ️ 无版本号变更，跳过提交"
+            echo "⚠️ 无版本号变更，跳过提交"
           fi
        #发布apk文件
       - name: Upload Release APK
@@ -123,7 +123,7 @@ jobs:
           files: ${{ env.APK_FILE }}
           tag_name: "v${{ env.VERSION }}"
           body: |
-            ✅ 编译完成！
+            ✅ 编译完成！ 🎉🎉🎉
             📱 应用版本: v${{ env.VERSION }}
             📅 编译时间: ${{ env.DATE }} ${{ env.BUILD_TIME }}
             📦 构建编号: ${{ github.run_number }}
